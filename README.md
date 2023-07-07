@@ -1,26 +1,8 @@
-# rollup-starter-app
-
-This repo contains a bare-bones example of how to create an application using Rollup, including importing a module from `node_modules` and converting it from CommonJS.
-
-*See also https://github.com/rollup/rollup-starter-lib*
-
+# d3-selection-exploration
+This repo contains the results messing around with d3 a bit. It uses npm to manage dependencies, Rollout to bundle javascript, and the rollup-startup-app to allow live refresh of the bundle.js as code is modified.
 
 ## Getting started
-
-Clone this repository and install its dependencies:
-
-```bash
-git clone https://github.com/rollup/rollup-starter-app
-cd rollup-starter-app
-npm install
-
-# or
-npx degit "rollup/rollup-starter-app" my-app
-cd my-app
-npm install
-```
-
-The `public/index.html` file contains a `<script src='bundle.js'>` tag, which means we need to create `public/bundle.js`. The `rollup.config.js` file tells Rollup how to create this bundle, starting with `src/main.js` and including all its dependencies, including [date-fns](https://date-fns.org).
+For enabling live generation of bundle.js.
 
 `npm run build` builds the application to `public/bundle.js`, along with a sourcemap file for debugging.
 
