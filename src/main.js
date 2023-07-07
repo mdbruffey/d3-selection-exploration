@@ -1,7 +1,22 @@
-import update from './update.js';
+import { select } from 'd3';
+import { vizData } from './vizData';
+import { makeData } from './makeData';
+import { makeLinks } from './makeLinks';
 
-// even though Rollup is bundling all your files together, errors and
-// logs will still point to your original source modules
-console.log('if you have sourcemaps enabled in your devtools, click on main.js:5 -->');
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-update();
+const svg = select('body')
+  .append('svg')
+  .attr('width', width)
+  .attr('height', height);
+
+const n = 1000;
+
+let t = 0;
+setInterval(() => {
+  const data = makeData(n, t);
+  const links = makeLinks(data);
+  svg.call(vizData, data, links);
+  t += 0.02;
+}, 100 / 6);
